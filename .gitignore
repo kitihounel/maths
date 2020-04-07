@@ -1,12 +1,13 @@
 *.aux
 *.bbl
 *.blg
+*.gif
 *.lof
 *.log
 *.lot
+*.nav
 *.out
 *.pdf
+*.snm
 *.synctex.gz*
 *.toc
-*.pdf
-*.gif

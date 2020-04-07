@@ -5,7 +5,7 @@ Projet de vulgarisation des mathématiques
 Pour compiler les slides il vous faudra une distribution LaTeX fonctionnelle.
 
 Le thème utilisé pour les slides est Metropolis disponible
-[https://github.com/matze/mtheme](ici). Il peut également être installé grâce
+[ici](https://github.com/matze/mtheme). Il peut également être installé grâce
 au paquet `texlive-latex-extra`.
 
 ## Conversion des fichiers PDF en GIF
@@ -18,9 +18,8 @@ convert -verbose -delay 1000 -loop 0 -density 300 file.pdf file.gif
 
 Sous les distributions Linux, il y a des restrictions par défaut sur le programme
 ImageMagick qui empêcheront le script de fonctionner. La procédure pour retirer
-ces restrictions est donnée dans cette discussion sur AskUbuntu
-[https://askubuntu.com/questions/1081895](). La procédure consiste à exécuter
-les commandes suivantes.
+ces restrictions est donnée dans cette [discussion](https://askubuntu.com/questions/1081895)
+sur AskUbuntu. La procédure consiste à exécuter les commandes suivantes.
 
 ```
 cd /etc/ImageMagick-6/

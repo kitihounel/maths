@@ -1,0 +1,255 @@
+\documentclass{beamer}
+\usepackage[french]{babel}
+\usepackage{default}
+\usepackage{lmodern}
+\usepackage{tikzsymbols}
+\usepackage{hyperref}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{bm} % Bold text in math envs.
+
+% Allow text to be justified on slides.
+% https://latex.org/forum/viewtopic.php?t=2722
+\justifying
+
+\usetheme{metropolis}
+
+\title{Suites numériques}
+\author{}
+
+\begin{document}
+\setbeamercovered{transparent} 
+% Add background color for blocks.
+\metroset{block=fill}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Objectifs}
+  J'ai dans un coin de ma tête un petit projet de vulgarisation des mathématiques. Le but est de faire comprendre que les mathématiques ne sont pas une obscure science réservée à une élite, mais un langage utilisé pour décrire le monde. La mauvaise réputation des mathématiques est en partie due à la manière dont elles sont enseignées.
+  
+  J'ai compris que si l'on explique en termes simples les notions mathématiques avec des exemples d'application à l'appui, on peut faire comprendre aux gens leur importance.
+\end{frame}
+
+\begin{frame}{Introduction}  
+  J'avais déjà publié il y a plus d'un an un premier document sur les suites, mais avec le recul, je me suis aperçu que le document pouvait être amélioré. Voici donc une nouvelle version plus accessible et détaillée.
+\end{frame}
+
+\begin{frame}{Suites numériques}
+  Dans leur forme la plus simple, les suites numériques sont simplement des séquences de nombres.
+  \vspace{12pt}
+  \begin{block}{Définition intutive}
+    Suite numérique = suite ou séquence de nombres
+  \end{block}
+\end{frame}
+
+\begin{frame}{Exemples de suites}
+  Par exemple, la séquence de nombres
+  \begin{align*}
+    \footnotesize
+    \bm{4,\ \ 2,\ \ 7,\ \ 13,\ \ 12,\ \ 45}
+  \end{align*}
+  peut être considérée comme une suite numérique. On peut en créer à volonté avec les nombres que l'on souhaite.
+\end{frame}
+
+\begin{frame}{Exemples de suites II}
+  En voici une autre.
+  \begin{align*}
+    \footnotesize
+    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+  \end{align*}
+\end{frame}
+
+\begin{frame}{Exemples de suites III}
+  Et encore une.
+  \begin{align*}
+    \footnotesize
+    \bm{116,\ \ 416,\ \ 728,\ \ 1061,\ \ 1561,\ \ 2081,\ \ 3141,\ \ 3642,\ \ 4163}
+  \end{align*}
+\end{frame}
+
+\begin{frame}{\'{E}léments constitutifs d'une suite}
+  Les nombres qui forment une suite peuvent être choisis au hasard et n'avoir aucune signification particulière. Ainsi pour créer la suite
+  \begin{align*}
+    \footnotesize
+    \bm{4,\ \ 2,\ \ 7,\ \ 13,\ \ 12,\ \ 45}
+  \end{align*}
+  les nombres ont été choisis au hasard.
+
+  Mais plus généralement, les nombres qui constituent une suites représentent des faits, des informations importantes ou proviennent de l'observation de phénomènes naturels.
+\end{frame}
+
+\begin{frame}{\'{E}léments constitutifs d'une suite II}  
+  Ainsi, les nombres de la suite
+  \begin{align*}
+    \footnotesize
+    \bm{116,\ \ 416,\ \ 728,\ \ 1061,\ \ 1561,\ \ 2081,\ \ 3141,\ \ 3642,\ \ 4163}
+  \end{align*}
+  sont issus de la grille tarifaire appliquée par le service MTN MoMo pour les opérations de retrait.
+\end{frame}
+
+\begin{frame}{\'{E}léments constitutifs d'une suite III}  
+  Les nombres
+  \begin{align*}
+    \footnotesize
+    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+  \end{align*}
+  représentent quant à eux les températures maximales enregistrées par année de 2010 à 2018 dans la ville de Cotonou. 
+\end{frame}
+
+\begin{frame}{\'{E}léments constitutifs d'une suite IV}
+  Ainsi, une suite numérique peut être créée de façon arbitraire en fonction de la fantaisie du créateur ou résulter de l'observation d'un phénomène.
+  \begin{itemize}
+    \item chiffre d'affaires d'une entreprise sur plusieurs années;
+    \item les moyennes de classe d'un élève durant ses études secondaires;
+    \item L'évolution du poids d'un bébé;
+    \item etc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\'{E}léments constitutifs d'une suite V}
+  Généralement, on s'intéresse aux suites de la seconde catégorie. Souvent parce que l'on veut étudier un phénomène et faire des prévisions en fonction des observations passées.
+\end{frame}
+
+\begin{frame}{Convention de représentation des suites}
+Les mathématiciens aiment bien la concision. Ils représentent souvent les choses avec des symboles, pour ne pas trop écrire et gagner du temps\footnote{Je vous le dis, ce sont de gros paresseux.}.
+
+Tout comme on donne un prénom à un enfant, on désigne généralement une suite par une lettre de l'alphabet. Les lettres utilisées couramment à cet effet sont U, V ou encore F\footnote{On verra plus tard que la lettre choisie est souvent la première lettre du nom de famille du créateur de la suite s'il advient que la suite devienne célèbre.}.
+\end{frame}
+
+\begin{frame}{Convention de représentation des suites II}
+  Au sein d'une suite, les éléments sont désignés un indice, qui n'est rien d'autre que leur rang au sein de la suite.
+
+  Le premier élément prend l'indice 1, le deuxième élément l'indice 2, le troisième élément l'indice 3, ainsi de suite.
+\end{frame}
+
+\begin{frame}{Convention de représentation des suites III}
+  Donc, si nous avons choisi de nommer une suite $u$:
+  \begin{itemize}
+    \item le premier élément de la suite sera $u_1$,
+    \item le deuxième élément sera $u_2$,
+    \item le troisième élément sera $u_3$,
+    \item $\dots$,
+    \item le n-ième élément sera $u_n$.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}{Convention de représentation des suites III}
+  Pour notre suite
+  \begin{align*}
+    \footnotesize
+    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+  \end{align*}
+  qui représente les températures maximales par année, nous avons:
+  \begin{itemize}
+    \item $u_1 = 34.8$,
+    \item $u_2 = 34.2$,
+    \item $u_3 = 34.0$,
+    \item $\dots$,
+    \item $u_9 = 33.9$.
+  \end{itemize} 
+\end{frame}
+
+\begin{frame}{Terminologie}
+  Les éléments d'une suite sont appelés \textbf{termes}\footnote{Ha ha ha! Vous avez compris le jeu de mots ? Terminologie, termes... Vous voyez qu'on peut s'amuser en faisant les maths.} de la suite.
+\end{frame}
+
+
+\begin{frame}{Terminologie II}
+  Donc, à partir de cet instant, nous utiliserons l'expression \textbf{terme} pour désigner les éléments d'une suite.
+\end{frame}
+
+\begin{frame}{Calcul des termes d'une suite à l'aide d'une formule}
+Nous avons dit que l'on peut créer une suite soit en choisissant les termes de façon aléatoire, soit en étudiant un phénomène et en notant les valeurs observées.
+
+Il existe une troisième façon de définir une suite, située à mi-chemin entre les deux précédentes. Elle consiste à établir une formule pour calculer les termes de la suite.
+\end{frame}
+
+\begin{frame}{Calcul des termes d'une suite à l'aide d'une formule}
+  Nous disons que cette méthode est à mi-chemin entre les deux autres parce que nous pouvons définir une formule de calcul tout à fait au hasard juste pour nous amuser (ce qui rejoint la situation où nous choisissions de façon aléatoire les termes de notre suite), mais nous pouvons aussi définir une formule qui permette de faire estimations exactes ou approchées des valeurs prises par un phénomène que nous étudions.
+\end{frame}
+
+% Poids du bébé, solde compte épargne, etc.
+
+\begin{frame}{Déduction de la formule de calcul}
+Pour trouver la formule, il faut juste se rappeler de comment est calculée la valeur d'un terme  à partir du terme précédent.
+
+\begin{displaymath}
+  \begin{array}{lllllll}
+    u_1 & = & u_0 + r &   & 				 	    &   &					 \\
+    u_2 & = & u_1 + r & = & u_0 + \ r + r & = & u_0 + 2r \\
+    u_3 & = & u_2 + r & = & u_0 + 2r  + r & = & u_0 + 3r \\
+    u_4 & = & u_3 + r & = & u_0 + 3r  + r & = & u_0 + 4r
+  \end{array}
+\end{displaymath}
+
+On observe donc pour une suite arithmétique dont on connaît le premier terme $u_0$ et la raison $r$, on a la propriété :
+\[
+  u_n = u_0 + nr,\ \forall n
+\]
+\end{frame}
+
+\begin{frame}{Utilité des suites arithmétiques I}
+  Supposons que vous ouvriez un compte à intérêts simples dans une banque. Le taux d'intérêt est de 5\% et vous déposez $10\ 000\ 000$ dans le compte. Donc à la fin de chaque année, vous recevrez des intérêts s'élevant à $500\ 000$.
+
+  Après un an, le solde du compte passera à $10\ 500\ 000$. Après deux ans, vous disposerez de $11\ 000\ 000$. Au bout de la troisième année le solde sera de $11\ 500\ 000$. On constate donc que le solde de votre compte à la fin d'une année donnée n'est rien que le solde à la fin de l'année précédente plus les $500\ 000$ d'intérêts.
+\end{frame}
+
+\begin{frame}{Utilité des suites arithmétiques II}
+  Le solde de votre compte d'année en année suit donc une suite arithmétique dont le premier terme est le montant du dépôt initial $10\ 000\ 000$ et dont la raison est le montant des intérêts $500\ 000$.
+
+  \[
+    \begin{cases}
+      u_0 &= 10\ 000\ 000 \\
+      u_{n+1} &= u_{n-1} + 500\ 000
+    \end{cases}
+  \]
+\end{frame}
+
+\begin{frame}{Utilité des suites arithmétiques III}
+  Les suites arithmétiques peuvent donc servir à modéliser l'évolution des comptes bancaires à intérêts simples.
+
+  Mais elles ont d'autres applications. En fait on retrouve des suites arithmétiques dans les phénomènes quotidiens. Tous les évènements qui se produisent à intervalles réguliers forment des suites arithmétiques. Les marches des escaliers ont des hauteurs régulièrement espacées si le maçon qui les a bâties est consciencieux, vos dates d'anniversaire sont espacées de 365 jours (sauf si vous êtes né un 29 février), les graduations sur les règles sont espacées de 1mm, etc. Même les tailles des frères Dalton forment une suite arithmétique.
+
+  Regardez autour de vous et observez attentivement. Vous trouverez d'autres exemples. Tout ce qui se produit à intervalle régulier définit une suite arithmétique.
+\end{frame}
+
+\begin{frame}{Petit exercice de fin}
+Supposons que vous ayez envie de savoir dans combien d'années le solde de votre compte atteindra un certain montant. Par exemple, vous avez besoin de $12\ 800\ 000$ pour vous acheter une nouvelle voiture ou une parcelle.
+
+Si on traduit cela sous forme d'équation, cela revient à chercher le plus petit nombre entier $K$ tel que $u_K \ge 12\ 800\ 000$. On cherche donc le premier terme de notre suite qui suit supérieur ou égal à la somme désirée.
+
+\begin{align*}
+  u_n &\ge 12\ 800\ 000 \\
+\end{align*}
+\end{frame}
+
+\begin{frame}{Résolution de l'équation}
+\begin{align*}
+  u_0 + nr 	&\ge 12\ 800\ 000 \\
+  nr 				&\ge 12\ 800\ 000 - u_0 \\
+  nr 				&\ge 12\ 800\ 000 - 10\ 000\ 000 \\
+  nr 				&\ge 2\ 800\ 000 \\
+  n 				&\ge \frac{2\ 800\ 000}{500\ 000} \\
+  n 				&\ge \frac{28}{5} \\
+  n 				&\ge 5,6
+\end{align*}
+\end{frame}
+
+\begin{frame}{Solution de l'équation}
+Il vous faudra donc attendre six ans. \Smiley
+\end{frame}
+
+\begin{frame}{Mot de fin}
+Fin de la première présentation. J'espère que cela vous a plu.
+
+Toute suggestion, idée d'amélioration ou proposition de sujets à aborder est bienvenue.
+
+\`{A} bientôt pour une nouvelle série.
+
+\begin{center}
+  \dSmiley[3]
+\end{center}
+\end{frame}
+\end{document}

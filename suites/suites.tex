@@ -16,6 +16,7 @@
 
 \title{Suites numériques}
 \author{}
+\date{}
 
 \begin{document}
 \setbeamercovered{transparent} 
@@ -40,7 +41,7 @@
   Dans leur forme la plus simple, les suites numériques sont simplement des séquences de nombres.
   \vspace{12pt}
   \begin{block}{Définition intutive}
-    Suite numérique = suite ou séquence de nombres
+    Suite numérique = liste de nombres
   \end{block}
 \end{frame}
 
@@ -77,7 +78,7 @@
   \end{align*}
   les nombres ont été choisis au hasard.
 
-  Mais plus généralement, les nombres qui constituent une suites représentent des faits, des informations importantes ou proviennent de l'observation de phénomènes naturels.
+  Mais plus généralement, les nombres qui constituent une suite représentent des faits, des informations importantes ou proviennent de l'observation de phénomènes naturels.
 \end{frame}
 
 \begin{frame}{\'{E}léments constitutifs d'une suite II}  
@@ -99,11 +100,11 @@
 \end{frame}
 
 \begin{frame}{\'{E}léments constitutifs d'une suite IV}
-  Ainsi, une suite numérique peut être créée de façon arbitraire en fonction de la fantaisie du créateur ou résulter de l'observation d'un phénomène.
+  Ainsi, une suite numérique peut être créée de façon arbitraire en fonction de la fantaisie du créateur ou résulter de l'observation d'un phénomène :
   \begin{itemize}
     \item chiffre d'affaires d'une entreprise sur plusieurs années;
     \item les moyennes de classe d'un élève durant ses études secondaires;
-    \item L'évolution du poids d'un bébé;
+    \item l'évolution du poids d'un bébé;
     \item etc.
   \end{itemize}
 \end{frame}
@@ -113,9 +114,9 @@
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites}
-Les mathématiciens aiment bien la concision. Ils représentent souvent les choses avec des symboles, pour ne pas trop écrire et gagner du temps\footnote{Je vous le dis, ce sont de gros paresseux.}.
+Les mathématiciens aiment bien la concision. Ils représentent souvent les choses avec des symboles, pour ne pas trop écrire et gagner du temps\footnote{Ce sont de gros paresseux.}.
 
-Tout comme on donne un prénom à un enfant, on désigne généralement une suite par une lettre de l'alphabet. Les lettres utilisées couramment à cet effet sont U, V ou encore F\footnote{On verra plus tard que la lettre choisie est souvent la première lettre du nom de famille du créateur de la suite s'il advient que la suite devienne célèbre.}.
+Tout comme on donne un prénom à un enfant, on désigne généralement une suite par une lettre de l'alphabet. Les lettres utilisées couramment à cet effet sont U, V ou encore F\footnote{Parfois, la lettre choisie est la première lettre du nom de famille du créateur de la suite, s'il advient que la suite est célèbre.}.
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites II}
@@ -161,95 +162,123 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
 \end{frame}
 
 \begin{frame}{Calcul des termes d'une suite à l'aide d'une formule}
-Nous avons dit que l'on peut créer une suite soit en choisissant les termes de façon aléatoire, soit en étudiant un phénomène et en notant les valeurs observées.
-
-Il existe une troisième façon de définir une suite, située à mi-chemin entre les deux précédentes. Elle consiste à établir une formule pour calculer les termes de la suite.
+  Nous avons dit que l'on peut créer une suite soit en choisissant les termes de façon aléatoire, soit en étudiant un phénomène et en notant les valeurs observées.
+  
+  Il existe une troisième façon de définir une suite, située à mi-chemin entre les deux précédentes. Elle consiste à établir une formule pour calculer les termes de la suite.
 \end{frame}
 
 \begin{frame}{Calcul des termes d'une suite à l'aide d'une formule}
-  Nous disons que cette méthode est à mi-chemin entre les deux autres parce que nous pouvons définir une formule de calcul tout à fait au hasard juste pour nous amuser (ce qui rejoint la situation où nous choisissions de façon aléatoire les termes de notre suite), mais nous pouvons aussi définir une formule qui permette de faire estimations exactes ou approchées des valeurs prises par un phénomène que nous étudions.
+  Nous disons que cette méthode est à mi-chemin entre les deux autres parce que nous pouvons définir une formule de calcul tout à fait au hasard juste pour nous amuser (ce qui rejoint la situation où nous choisissions de façon aléatoire les termes de notre suite), mais nous pouvons aussi définir une formule qui permette de faire des estimations exactes ou approchées des valeurs prises par un phénomène que nous étudions.
 \end{frame}
 
-% Poids du bébé, solde compte épargne, etc.
-
-\begin{frame}{Déduction de la formule de calcul}
-Pour trouver la formule, il faut juste se rappeler de comment est calculée la valeur d'un terme  à partir du terme précédent.
-
-\begin{displaymath}
-  \begin{array}{lllllll}
-    u_1 & = & u_0 + r &   & 				 	    &   &					 \\
-    u_2 & = & u_1 + r & = & u_0 + \ r + r & = & u_0 + 2r \\
-    u_3 & = & u_2 + r & = & u_0 + 2r  + r & = & u_0 + 3r \\
-    u_4 & = & u_3 + r & = & u_0 + 3r  + r & = & u_0 + 4r
-  \end{array}
-\end{displaymath}
-
-On observe donc pour une suite arithmétique dont on connaît le premier terme $u_0$ et la raison $r$, on a la propriété :
-\[
-  u_n = u_0 + nr,\ \forall n
-\]
+\begin{frame}{Illustration : étude du solde d'un compte à intérêts simples}
+  Supposons que vous ouvrez un compte à intérêts simples dans une banque.
+  
+  Pour ce type de compte, les intérêts sont calculés uniquement sur le montant du capital, sans prendre en compte les intérêts antérieurs. Ainsi à la fin de chaque année, le solde de votre compte augmente d'un montant fixe que l'on peut calculer en appliquant le taux d'intérêt au capital.
+  
+  \vspace{12pt}
+  \begin{block}{Montant des intérêts}
+    Intérêts = Capital * Taux / 100
+  \end{block}
 \end{frame}
 
-\begin{frame}{Utilité des suites arithmétiques I}
-  Supposons que vous ouvriez un compte à intérêts simples dans une banque. Le taux d'intérêt est de 5\% et vous déposez $10\ 000\ 000$ dans le compte. Donc à la fin de chaque année, vous recevrez des intérêts s'élevant à $500\ 000$.
-
-  Après un an, le solde du compte passera à $10\ 500\ 000$. Après deux ans, vous disposerez de $11\ 000\ 000$. Au bout de la troisième année le solde sera de $11\ 500\ 000$. On constate donc que le solde de votre compte à la fin d'une année donnée n'est rien que le solde à la fin de l'année précédente plus les $500\ 000$ d'intérêts.
+\begin{frame}{Formule pour le calcul du solde I}
+  Supposons que le capital de départ est de $1\ 000\ 000$ et que le taux appliqué est de $5$\%.
+  
+  On peut donc calculer le solde du compte d'année en année. Puisque le montant des intérêts ne change pas et dépend uniquement du capital de départ, on peut calculer:
+  \vspace{12pt}
+  \begin{block}{Montant des intérêts}
+    Intérêts = 1 000 000 * 5 / 100 = 5000
+  \end{block}
 \end{frame}
 
-\begin{frame}{Utilité des suites arithmétiques II}
-  Le solde de votre compte d'année en année suit donc une suite arithmétique dont le premier terme est le montant du dépôt initial $10\ 000\ 000$ et dont la raison est le montant des intérêts $500\ 000$.
-
-  \[
-    \begin{cases}
-      u_0 &= 10\ 000\ 000 \\
-      u_{n+1} &= u_{n-1} + 500\ 000
-    \end{cases}
-  \]
+\begin{frame}{Formule pour le calcul du solde II}
+\begin{small}
+  Ainsi:
+  \begin{itemize}
+    \item \`A la fin de la première année, nous aurons
+      \[
+        \begin{array}{l}
+          Solde = 1\ 000\ 000\ +\ 5\ 000 \\
+          Solde = 1\ 005\ 000
+        \end{array}
+      \]
+    \item \`A la fin de la 2ième année,
+      \[
+        \begin{array}{l}
+          Solde = 1\ 000\ 000 +\ 5\ 000 +\ 5\ 000 \\
+          Solde = 1\ 000\ 000 +\ 5\ 000 *\ 2 \\
+          Solde = 1\ 010\ 000
+        \end{array}
+      \]
+    \item \`A la fin de la 3ième année,\\
+      \[
+        \begin{array}{l}
+          Solde = 1\ 000\ 000\ + 5\ 000 +\ 5\ 000 +\ 5\ 000 \\
+          Solde = 1\ 000\ 000\ + 5\ 000 *\ 3 \\
+          Solde = 1\ 015\ 000
+        \end{array}
+      \]
+  \end{itemize}
+\end{small}
 \end{frame}
 
-\begin{frame}{Utilité des suites arithmétiques III}
-  Les suites arithmétiques peuvent donc servir à modéliser l'évolution des comptes bancaires à intérêts simples.
+\begin{frame}{Formule pour le calcul du solde III}
+  Si on observe comment se calcule le solde du compte à la fin d'une année, on peut constater que ce solde est obtenu en ajoutant au capital initial le montant des intérêts multiplié par le nombre d'années.
 
-  Mais elles ont d'autres applications. En fait on retrouve des suites arithmétiques dans les phénomènes quotidiens. Tous les évènements qui se produisent à intervalles réguliers forment des suites arithmétiques. Les marches des escaliers ont des hauteurs régulièrement espacées si le maçon qui les a bâties est consciencieux, vos dates d'anniversaire sont espacées de 365 jours (sauf si vous êtes né un 29 février), les graduations sur les règles sont espacées de 1mm, etc. Même les tailles des frères Dalton forment une suite arithmétique.
-
-  Regardez autour de vous et observez attentivement. Vous trouverez d'autres exemples. Tout ce qui se produit à intervalle régulier définit une suite arithmétique.
-\end{frame}
-
-\begin{frame}{Petit exercice de fin}
-Supposons que vous ayez envie de savoir dans combien d'années le solde de votre compte atteindra un certain montant. Par exemple, vous avez besoin de $12\ 800\ 000$ pour vous acheter une nouvelle voiture ou une parcelle.
-
-Si on traduit cela sous forme d'équation, cela revient à chercher le plus petit nombre entier $K$ tel que $u_K \ge 12\ 800\ 000$. On cherche donc le premier terme de notre suite qui suit supérieur ou égal à la somme désirée.
-
-\begin{align*}
-  u_n &\ge 12\ 800\ 000 \\
-\end{align*}
-\end{frame}
-
-\begin{frame}{Résolution de l'équation}
-\begin{align*}
-  u_0 + nr 	&\ge 12\ 800\ 000 \\
-  nr 				&\ge 12\ 800\ 000 - u_0 \\
-  nr 				&\ge 12\ 800\ 000 - 10\ 000\ 000 \\
-  nr 				&\ge 2\ 800\ 000 \\
-  n 				&\ge \frac{2\ 800\ 000}{500\ 000} \\
-  n 				&\ge \frac{28}{5} \\
-  n 				&\ge 5,6
-\end{align*}
-\end{frame}
-
-\begin{frame}{Solution de l'équation}
-Il vous faudra donc attendre six ans. \Smiley
-\end{frame}
-
-\begin{frame}{Mot de fin}
-Fin de la première présentation. J'espère que cela vous a plu.
-
-Toute suggestion, idée d'amélioration ou proposition de sujets à aborder est bienvenue.
-
-\`{A} bientôt pour une nouvelle série.
+  On peut donc calculer le solde à la fin d'une année pour un compte à intérêts simples. Si on nomme
+  \begin{itemize}
+    \item C le capital de départ,
+    \item I le montant des intérêts,
+    \item N le nombre d'années,
+  \end{itemize}
 
 \begin{center}
-  \dSmiley[3]
-\end{center}
+  \begin{math}
+    Solde\ =\ C\ +\ N\ *\ I\
+  \end{math}
+\end{center}   
+\end{frame}
+
+\begin{frame}{Création de notre suite}
+  On peut donc prédire avec exactitude le solde du compte chaque année grâce à une formule.
+  
+  On a donc les deux éléments permettant de définir une suite:
+  \begin{itemize}
+    \item Un phénomène qui est d'un grand intérêt pour nous (l'évolution du solde de notre compte),
+    \item une formule qui permet de prédire le comportement du phénomène (les valeurs futures du solde).
+  \end{itemize} 
+
+  Et voilà. On peut créer une suite numérique dont les termes représentent le solde de notre compte pour une année donnée.
+\end{frame}
+
+\begin{frame}{Formule}
+  La formule de notre suite, que nous appellerons S\footnote{Rappelez-vous, les mathématiciens aiment l'éfficacité. Utiliser une lettre ou un symbole pour représenter une idée ou faire référence à quelque chose. C'est un principe utilisé couramment dans la vie de tous les jours. Par exemple, si vous voyez un sac avec VL, vous savez immédiatement que c'est fait par Louis Vuitton. } (pour solde) est la suivante:
+  \begin{center}
+    \begin{math}
+      S_{n}\ =\ C\ +\ n\ *\ I
+    \end{math}
+  \end{center}
+
+En fonction de notre capital (C) de départ et de l'intérêt (I), cette formule nous permet de calculer le solde après un certain nombre d'années (n).
+\end{frame}
+
+\begin{frame}{Formule}
+  Notre formule,
+  \begin{center}
+    \begin{math}
+    S_{n}\ =\ C\ +\ n\ *\ I
+    \end{math}
+  \end{center}
+  
+  traduit l'idée suivante: le solde du compte après $n$ année(s) s'obtient en ajoutant au capital de départ le montant des intérêts multiplié par le nombre d'année $n$.
+  
+  Voilà résumé sur ce transparent un principe important des mathématiques : résumer en une formule utilisant 7 symboles un principe qui, une fois compris, s'explique avec 25 mots.
+\end{frame}
+
+\begin{frame}{Conclusion}
+  Et voilà.
+  
+  Nous sommes à la fin de la première présentation.
 \end{frame}
 \end{document}

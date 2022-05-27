@@ -1,4 +1,5 @@
 \documentclass{beamer}
+
 \usepackage[french]{babel}
 \usepackage{default}
 \usepackage{lmodern}
@@ -12,11 +13,35 @@
 % https://latex.org/forum/viewtopic.php?t=2722
 \justifying
 
+% The following correct alignment in footnotes
+% https://tex.stackexchange.com/questions/169745/left-aligning-footnotes-in-beamer 
+\makeatletter
+\renewcommand<>\beamer@framefootnotetext[1]{%
+  \global\setbox\beamer@footins\vbox{%
+    \hsize\framewidth
+    \textwidth\hsize
+    \columnwidth\hsize
+    \unvbox\beamer@footins
+    \reset@font\footnotesize
+    \@parboxrestore
+    \protected@edef\@currentlabel
+    {\csname p@footnote\endcsname\@thefnmark}%
+    \color@begingroup
+    \uncover#2{%
+      \@makefntext{%
+        \rule\z@\footnotesep\ignorespaces\parbox[t]{.98\textwidth}{#1\@finalstrut\strutbox}\vskip1sp%
+      }
+    }%
+    \color@endgroup%
+  }%
+}
+\makeatother
+
 \usetheme{metropolis}
 
 \title{Suites numériques}
-\author{}
-\date{}
+\author{Lionel D. KITIHOUN}
+\date{27 mai 2022}
 
 \begin{document}
 \setbeamercovered{transparent} 
@@ -29,19 +54,19 @@
 
 \begin{frame}{Objectifs}
   J'ai dans un coin de ma tête un petit projet de vulgarisation des mathématiques. Le but est de faire comprendre que les mathématiques ne sont pas une obscure science réservée à une élite, mais un langage utilisé pour décrire le monde. La mauvaise réputation des mathématiques est en partie due à la manière dont elles sont enseignées.
-  
-  J'ai compris que si l'on explique en termes simples les notions mathématiques avec des exemples d'application à l'appui, on peut faire comprendre aux gens leur importance.
+
+  J'ai compris au fil des mes recherches, que si l'on explique en termes simples les notions mathématiques avec des exemples d'application à l'appui, on peut faire comprendre aux gens l'importance des mathématiques.
 \end{frame}
 
 \begin{frame}{Introduction}  
-  J'avais déjà publié il y a plus d'un an un premier document sur les suites, mais avec le recul, je me suis aperçu que le document pouvait être amélioré. Voici donc une nouvelle version plus accessible et détaillée.
+  J'avais déjà publié il y a plus d'un an un premier document sur les suites, mais avec le recul, je me suis aperçu que le document pouvait être amélioré. Voici donc une nouvelle version que j'espère plus accessible et détaillée.
 \end{frame}
 
 \begin{frame}{Suites numériques}
-  Dans leur forme la plus simple, les suites numériques sont simplement des séquences de nombres.
+  Dans leur forme la plus simple, les suites numériques peuvent être considérées des listes de nombres.
   \vspace{12pt}
-  \begin{block}{Définition intutive}
-    Suite numérique = liste de nombres
+  \begin{block}{Définition intuitive}
+    Une suite numérique est une liste de nombres.
   \end{block}
 \end{frame}
 
@@ -49,16 +74,18 @@
   Par exemple, la séquence de nombres
   \begin{align*}
     \footnotesize
-    \bm{4,\ \ 2,\ \ 7,\ \ 13,\ \ 12,\ \ 45}
+    4 \qquad 2,4 \qquad 7 \qquad 13 \qquad 12,5 \qquad 45
   \end{align*}
-  peut être considérée comme une suite numérique. On peut en créer à volonté avec les nombres que l'on souhaite.
+  peut être considérée comme une suite numérique.
+  
+  On peut créer des suites à volonté, avec les nombres que l'on souhaite.
 \end{frame}
 
 \begin{frame}{Exemples de suites II}
   En voici une autre.
   \begin{align*}
     \footnotesize
-    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+    30,9 \quad 31,1 \quad 31,0 \quad 30,7 \quad 30,5 \quad 30,6 \quad 30,7 \quad 30,6 \quad 30,9 \quad 30,8
   \end{align*}
 \end{frame}
 
@@ -66,7 +93,7 @@
   Et encore une.
   \begin{align*}
     \footnotesize
-    \bm{116,\ \ 416,\ \ 728,\ \ 1061,\ \ 1561,\ \ 2081,\ \ 3141,\ \ 3642,\ \ 4163}
+    116 \quad 416 \quad 728 \quad 1061 \quad 1561 \quad 2081 \quad 3141 \quad 3642 \quad 4163
   \end{align*}
 \end{frame}
 
@@ -74,9 +101,9 @@
   Les nombres qui forment une suite peuvent être choisis au hasard et n'avoir aucune signification particulière. Ainsi pour créer la suite
   \begin{align*}
     \footnotesize
-    \bm{4,\ \ 2,\ \ 7,\ \ 13,\ \ 12,\ \ 45}
+    4 \qquad 2,4 \qquad 7 \qquad 13 \qquad 12,5 \qquad 45
   \end{align*}
-  les nombres ont été choisis au hasard.
+  j'ai choisi les nombres au hasard.
 
   Mais plus généralement, les nombres qui constituent une suite représentent des faits, des informations importantes ou proviennent de l'observation de phénomènes naturels.
 \end{frame}
@@ -85,18 +112,18 @@
   Ainsi, les nombres de la suite
   \begin{align*}
     \footnotesize
-    \bm{116,\ \ 416,\ \ 728,\ \ 1061,\ \ 1561,\ \ 2081,\ \ 3141,\ \ 3642,\ \ 4163}
+    116 \quad 416 \quad 728 \quad 1061 \quad 1561 \quad 2081 \quad 3141 \quad 3642 \quad 4163
   \end{align*}
-  sont issus de la grille tarifaire appliquée par le service MTN MoMo pour les opérations de retrait.
+  sont issus de la grille tarifaire appliquée par le service MTN Mobile Money du Bénin pour les opérations de retrait\footnote{Ces tarifs ont d'ailleurs été revus à la baisse suite au mécontentement des populations}.
 \end{frame}
 
 \begin{frame}{\'{E}léments constitutifs d'une suite III}  
   Les nombres
   \begin{align*}
     \footnotesize
-    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+    30,9 \quad 31,1 \quad 31,0 \quad 30,7 \quad 30,5 \quad 30,6 \quad 30,7 \quad 30,6 \quad 30,9 \quad 30,8
   \end{align*}
-  représentent quant à eux les températures maximales enregistrées par année de 2010 à 2018 dans la ville de Cotonou. 
+  représentent quant à eux les températures maximales enregistrées par année de 2000 à 2009 dans la ville de Cotonou\footnote{Source: \url{benin.opendataforafrica.org/kbekwme}}. 
 \end{frame}
 
 \begin{frame}{\'{E}léments constitutifs d'une suite IV}
@@ -110,52 +137,53 @@
 \end{frame}
 
 \begin{frame}{\'{E}léments constitutifs d'une suite V}
-  Généralement, on s'intéresse aux suites de la seconde catégorie. Souvent parce que l'on veut étudier un phénomène et faire des prévisions en fonction des observations passées.
+  Généralement, on s'intéresse aux suites qui sont issues de l'étude d'un phénomène. Souvent parce que le phénomène présente un certain intérêt et que l'on veut pouvoir faire des prévisions sur ses futures manifestations.
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites}
-Les mathématiciens aiment bien la concision. Ils représentent souvent les choses avec des symboles, pour ne pas trop écrire et gagner du temps\footnote{Ce sont de gros paresseux.}.
+Les mathématiciens aiment bien la simplicité. Ils représentent souvent les choses avec des symboles, pour ne pas trop écrire et gagner du temps.
 
-Tout comme on donne un prénom à un enfant, on désigne généralement une suite par une lettre de l'alphabet. Les lettres utilisées couramment à cet effet sont U, V ou encore F\footnote{Parfois, la lettre choisie est la première lettre du nom de famille du créateur de la suite, s'il advient que la suite est célèbre.}.
+Tout comme on donne un prénom à un enfant, on désigne généralement une suite par une lettre\footnote{Parfois, la lettre utilisée est la première lettre du nom de famille du créateur de la suite, s'il s'agit d'une suite très utile.} de l'alphabet. Les lettres utilisées couramment à cet effet sont U, V ou encore F.
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites II}
-  Au sein d'une suite, les éléments sont désignés un indice, qui n'est rien d'autre que leur rang au sein de la suite.
+  Au sein d'une suite, les éléments sont désignés par un indice, qui n'est rien d'autre que leur position au sein de la suite.
 
   Le premier élément prend l'indice 1, le deuxième élément l'indice 2, le troisième élément l'indice 3, ainsi de suite.
+
+  Il est également courant que les éléments d'une suite soient numérotés à partir de 0 (nous y reviendrons). Dans ce cas, le premier élément prend l'indice 0, le deuxième élément l'indice 1, le troisième élément l'indice 2, etc.
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites III}
-  Donc, si nous avons choisi de nommer une suite $u$:
+  Donc, si nous avons choisi de nommer une suite $u$ et de donner l'indice 1 au premier élément:
   \begin{itemize}
-    \item le premier élément de la suite sera $u_1$,
-    \item le deuxième élément sera $u_2$,
-    \item le troisième élément sera $u_3$,
-    \item $\dots$,
-    \item le n-ième élément sera $u_n$.
+    \item le premier élément de la suite sera $u_1$
+    \item le deuxième élément sera $u_2$
+    \item le troisième élément sera $u_3$
+    \item $\dots$
+    \item le n-ième élément sera $u_n$
   \end{itemize} 
 \end{frame}
 
 \begin{frame}{Convention de représentation des suites III}
-  Pour notre suite
+  Ainsi, pour notre suite
   \begin{align*}
     \footnotesize
-    \bm{34.8,\ \ 34.2,\ \ 34.9,\ \ 34.0,\ \ 33.7,\ \ 34.2,\ \ 38.4,\ \ 82.6,\ \ 33.9}
+    30,9 \quad 31,1 \quad 31,0 \quad 30,7 \quad 30,5 \quad 30,6 \quad 30,7 \quad 30,6 \quad 30,9 \quad 30,8
   \end{align*}
-  qui représente les températures maximales par année, nous avons:
+  qui représente les températures maximales par année, nous aurons:
   \begin{itemize}
-    \item $u_1 = 34.8$,
-    \item $u_2 = 34.2$,
-    \item $u_3 = 34.0$,
-    \item $\dots$,
-    \item $u_9 = 33.9$.
+    \item $u_1 = 30,9$
+    \item $u_2 = 31,1$
+    \item $u_3 = 31,0$
+    \item $\dots$
+    \item $u_{10} = 30,9$
   \end{itemize} 
 \end{frame}
 
 \begin{frame}{Terminologie}
-  Les éléments d'une suite sont appelés \textbf{termes}\footnote{Ha ha ha! Vous avez compris le jeu de mots ? Terminologie, termes... Vous voyez qu'on peut s'amuser en faisant les maths.} de la suite.
+  Les éléments d'une suite sont appelés \textbf{termes} de la suite.
 \end{frame}
-
 
 \begin{frame}{Terminologie II}
   Donc, à partir de cet instant, nous utiliserons l'expression \textbf{terme} pour désigner les éléments d'une suite.
@@ -168,7 +196,9 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
 \end{frame}
 
 \begin{frame}{Calcul des termes d'une suite à l'aide d'une formule}
-  Nous disons que cette méthode est à mi-chemin entre les deux autres parce que nous pouvons définir une formule de calcul tout à fait au hasard juste pour nous amuser (ce qui rejoint la situation où nous choisissions de façon aléatoire les termes de notre suite), mais nous pouvons aussi définir une formule qui permette de faire des estimations exactes ou approchées des valeurs prises par un phénomène que nous étudions.
+  Nous disons que cette méthode est à mi-chemin entre les deux autres parce que nous pouvons définir une formule de calcul tout à fait au hasard juste pour nous amuser (ce qui rejoint la situation où nous choisissions de façon aléatoire les termes de notre suite).
+
+  Mais nous pouvons aussi définir une formule qui permette de faire des estimations exactes ou approchées des valeurs prises par un phénomène que nous étudions.
 \end{frame}
 
 \begin{frame}{Illustration : étude du solde d'un compte à intérêts simples}
@@ -182,7 +212,7 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
   \end{block}
 \end{frame}
 
-\begin{frame}{Formule pour le calcul du solde I}
+\begin{frame}{Formule pour le calcul du solde du compte I}
   Supposons que le capital de départ est de $1\ 000\ 000$ et que le taux appliqué est de $5$\%.
   
   On peut donc calculer le solde du compte d'année en année. Puisque le montant des intérêts ne change pas et dépend uniquement du capital de départ, on peut calculer:
@@ -192,7 +222,7 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
   \end{block}
 \end{frame}
 
-\begin{frame}{Formule pour le calcul du solde II}
+\begin{frame}{Formule pour le calcul du solde du compte II}
 \begin{small}
   Ainsi:
   \begin{itemize}
@@ -223,7 +253,7 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
 \end{small}
 \end{frame}
 
-\begin{frame}{Formule pour le calcul du solde III}
+\begin{frame}{Formule pour le calcul du solde du compte III}
   Si on observe comment se calcule le solde du compte à la fin d'une année, on peut constater que ce solde est obtenu en ajoutant au capital initial le montant des intérêts multiplié par le nombre d'années.
 
   On peut donc calculer le solde à la fin d'une année pour un compte à intérêts simples. Si on nomme
@@ -240,12 +270,12 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
 \end{center}   
 \end{frame}
 
-\begin{frame}{Création de notre suite}
+\begin{frame}{Définition de notre suite}
   On peut donc prédire avec exactitude le solde du compte chaque année grâce à une formule.
   
   On a donc les deux éléments permettant de définir une suite:
   \begin{itemize}
-    \item Un phénomène qui est d'un grand intérêt pour nous (l'évolution du solde de notre compte),
+    \item Un phénomène auquel nous nous intéressons beaucoup (l'évolution du solde de notre compte),
     \item une formule qui permet de prédire le comportement du phénomène (les valeurs futures du solde).
   \end{itemize} 
 
@@ -253,7 +283,7 @@ Tout comme on donne un prénom à un enfant, on désigne généralement une suit
 \end{frame}
 
 \begin{frame}{Formule}
-  La formule de notre suite, que nous appellerons S\footnote{Rappelez-vous, les mathématiciens aiment l'efficacité. Utiliser une lettre ou un symbole pour représenter une idée ou faire référence à quelque chose. C'est un principe utilisé couramment dans la vie de tous les jours. Par exemple, si vous voyez un sac avec VL, vous savez immédiatement que c'est fait par Louis Vuitton. } (pour solde) est la suivante:
+  La formule de notre suite, que nous appellerons S\footnote{Rappelez-vous, les mathématiciens aiment la concision. Utiliser une lettre ou un symbole pour représenter une idée ou faire référence à quelque chose. C'est un principe utilisé dans la vie de tous les jours. Par exemple, si vous voyez un sac avec un symbole VL, vous savez immédiatement que c'est une \oe{}uvre de Louis Vuitton.} (pour solde) est la suivante:
   \begin{center}
     \begin{math}
       S_{n}\ =\ C\ +\ n\ *\ I
@@ -276,9 +306,25 @@ En fonction de notre capital (C) de départ et de l'intérêt (I), cette formule
   Nous sommes là en présence d'un principe important des mathématiques : résumer en une formule (utilisant 7 symboles) un principe qui s'explique avec bien plus de mots (dans le cas présent, 28 mots).
 \end{frame}
 
-\begin{frame}{Conclusion}
-  Et voilà.
+\begin{frame}{Second exemple}
+  Si un parent, chaque jour met $100$f de côté après la naissance de son enfant, après dix-sept ans il aura économisé $620\ 500$f qui pourront l'aider à payer la scolarité de son enfant dans une faculté si ce dernier venait d'avoir le BAC.
+\end{frame}
+
+\begin{frame}{Formule du second exemple}
+  La formule pour calculer le montant des économies réalisées par le parent est simple.
   
-  Nous sommes à la fin de la première présentation.
+  On suppose qu'une année comprend 365 jours. Chaque jour, le parent ajoute $100$f à son épargne.
+
+  Par année, il épargne $365\ *\ 100\ = \ 36\ 500$f.
+  
+  Au bout de 17 ans années, il aura épargné $17\ *\ 36 500\ =\ 620\ 500$f.
+\end{frame}
+
+\begin{frame}{Conclusion}
+  Nous voici à la fin de la présentation.
+
+  J'espère qu'elle a été digeste et vous sera utile.
+
+  Merci à mes relecteurs pour leurs corrections et suggestions.
 \end{frame}
 \end{document}
